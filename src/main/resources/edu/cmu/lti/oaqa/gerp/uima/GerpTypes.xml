@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>GerpTypes</name>
+  <description>Type system descriptor for the GERP processing model.</description>
+  <version>0.1</version>
+  <vendor>OAQA</vendor>
+  <types>
+    <typeDescription>
+      <name>edu.cmu.lti.oaqa.gerp.uima.type.GerpBase</name>
+      <description>The base class for Gerp feature structures.</description>
+      <supertypeName>uima.cas.TOP</supertypeName>
+      <features>
+        <featureDescription>
+          <name>raw</name>
+          <description>The pointer to the raw type.</description>
+          <rangeTypeName>uima.cas.TOP</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo</name>
+      <description>A type that stores the information of the generator that creates the type.</description>
+      <supertypeName>edu.cmu.lti.oaqa.gerp.uima.type.GerpBase</supertypeName>
+      <features>
+        <featureDescription>
+          <name>generators</name>
+          <description>An array of genenator names that nominee this feature structure to be the candidate of a certain targeted entity.</description>
+          <rangeTypeName>uima.cas.StringList</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>dependencies</name>
+          <description>The pointers to the inputs that are being used to generate the Top.</description>
+          <rangeTypeName>uima.cas.FSList</rangeTypeName>
+          <elementType>uima.cas.TOP</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>edu.cmu.lti.oaqa.gerp.uima.type.Evidence</name>
+      <description>A type represents the evidence for the candidate entities, which is provided by an evidencer.</description>
+      <supertypeName>edu.cmu.lti.oaqa.gerp.uima.type.GerpBase</supertypeName>
+      <features>
+        <featureDescription>
+          <name>evidencer</name>
+          <description>An evidencer name that evidences the raw type.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>confidence</name>
+          <description>A score that indicates how likely the evidencer estimates the entity is qualified for the task.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>details</name>
+          <description>Detailed evidences provided by the evidencer in addition to the confidence score, e.g. related document URIs where a text similarity based evidence is calculated.</description>
+          <rangeTypeName>uima.cas.FSList</rangeTypeName>
+          <elementType>org.oaqa.model.core.OAQATop</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>edu.cmu.lti.oaqa.gerp.uima.type.Rank</name>
+      <description>A type represents the rank for the candidate entities, which is normally done by a ranker's synthesized analysis of collected evidences.</description>
+      <supertypeName>edu.cmu.lti.oaqa.gerp.uima.type.GerpBase</supertypeName>
+      <features>
+        <featureDescription>
+          <name>ranker</name>
+          <description>A ranker name that ranks the raw type.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>rank</name>
+          <description>A non-negative integer represents the rank of candidate.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>score</name>
+          <description>A float value represents how likely the candidate is relevant. The value is not required to have a probabilistic interpretation, instead any similarity, distance, etc. can be used.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>edu.cmu.lti.oaqa.gerp.uima.type.PruningDecision</name>
+      <description>A type represents the pruning decision for the candidate entities, which is provided by a pruner.</description>
+      <supertypeName>edu.cmu.lti.oaqa.gerp.uima.type.GerpBase</supertypeName>
+      <features>
+        <featureDescription>
+          <name>pruner</name>
+          <description>A pruner name that assignes pruning decision the raw type.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>decision</name>
+          <description>A binary pruning decision made by a pruner.</description>
+          <rangeTypeName>uima.cas.Boolean</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    </types>
+</typeSystemDescription>

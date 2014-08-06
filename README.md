@@ -35,9 +35,9 @@ Object[] configurationData = {
     "evidencers", new String[] { E1_DESC_PATH, E2_DESC_PATH },
     "rankers",    new String[] { R1_DESC_PATH, R2_DESC_PATH },
     "pruners",    new String[] { P1_DESC_PATH, P2_DESC_PATH }}
-    AnalysisEngineDescription aed = AnalysisEngineFactory.createEngineDescription(
-            SequentialGerpExecutor.class, configurationData);
-    JCasIterable iter = SimplePipeline.iteratePipeline(CR_DESC, aed);
+AnalysisEngineDescription aed = AnalysisEngineFactory.createEngineDescription(
+        SequentialGerpExecutor.class, configurationData);
+JCasIterable iter = SimplePipeline.iteratePipeline(CR_DESC, aed);
 ```
 
 A full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/uima/example/ExampleSequentialGerpExecutor.java).

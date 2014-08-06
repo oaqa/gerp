@@ -3,10 +3,10 @@ GERP Framework
 
 Data object and logic definition for GERP Framework, which standardizes the four key processing steps: generation, evidencing, ranking, and pruning, to achieve each individual information processing task.
 
-1. *Generators* will be executed in parallel given the _dependencies_ that the generator requires as input arguments.
-2. All raw types will be collected and processed by each *Evidencer*. *Evidence*s are required to be created for all raw input types in each evidencer.
-3. All *Evidence*s will then again be collected and passed to each *Ranker* in a _Map_ grouped by raw types generated in the generation phase. A *Rank* should be produced by each ranker.
-4. Finally, all *Rank* types are grouped and delivered to each *Pruner*, and each pruner should produce a *PruningDecision* for each raw type.
+1. __Generators__ will be executed in parallel given the _dependencies_ that the generator requires as input arguments.
+2. All raw types will be collected and processed by each __Evidencer__. __Evidences__ are required to be created for all raw input types in each evidencer.
+3. All __Evidences__ will then again be collected and passed to each __Ranker__ in a _Map_ grouped by raw types generated in the generation phase. A __Rank__ should be produced by each ranker.
+4. Finally, all __Rank__ types are grouped and delivered to each __Pruner__, and each pruner should produce a __PruningDecision__ for each raw type.
 
 Use GERP in Java
 ----------------
@@ -23,7 +23,7 @@ GerpExecutor<T> exec = new JdkGerpExecutor<T>(Arrays.asList(g1, g2),
 List<T> results = exec.run(DEPENDENCIES);
 ```
 
-Full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/example/SimpleGerpExample.java)
+A full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/example/SimpleGerpExample.java).
 
 Use GERP with UIMA
 ------------------
@@ -40,5 +40,4 @@ Object[] configurationData = {
     JCasIterable iter = SimplePipeline.iteratePipeline(CR_DESC, aed);
 ```
 
-Full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/uima/example/ExampleSequentialGerpExecutor.java)
-
+A full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/uima/example/ExampleSequentialGerpExecutor.java).

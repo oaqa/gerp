@@ -1,7 +1,7 @@
 GERP Framework
 ==============
 
-Data object and logic definition for GERP Framework, which standardizes the four key processing steps: generation, evidencing, ranking, and pruning, to achieve each individual information processing task.
+Data object and logic definition for GERP Framework, which standardizes the four key processing steps: generation, evidencing, ranking, and pruning, to accomplish each individual information processing task. The standardized GERP-compatible pipeline allows to easily reuse components and formal performance analysis.
 
 1. __Generators__ will be executed in parallel given the _dependencies_ that the generator requires as input arguments.
 2. All raw types will be collected and processed by each __Evidencer__. __Evidences__ are required to be created for all raw input types in each evidencer.
@@ -41,3 +41,6 @@ Object[] configurationData = {
 ```
 
 A full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/uima/example/ExampleSequentialGerpExecutor.java).
+
+**Questions or comments** Please create an issue or contact [me](http://www.cs.cmu.edu/~ziy).
+

@@ -12,14 +12,18 @@ Use GERP in Java
 ----------------
 
 ```java
-GerpExecutor<String> exec = new JdkGerpExecutor<String>(Arrays.asList(g1, g2),
-                                                        Arrays.asList(e1, e2),
-                                                        Arrays.asList(r1, r2),
-                                                        Arrays.asList(p1, p2));
-List<String> results = exec.run(new ArrayList<>());
+Generator<T>           g1, g2 = ...;
+CollectiveEvidencer<T> e1, e2 = ...;
+CollectiveRanker<T>    r1, r2 = ...;
+CollectivePruner<T>    p1, p2 = ...;
+GerpExecutor<T> exec = new JdkGerpExecutor<T>(Arrays.asList(g1, g2),
+                                              Arrays.asList(e1, e2),
+                                              Arrays.asList(r1, r2),
+                                              Arrays.asList(p1, p2));
+List<T> results = exec.run(DEPENDENCIES);
 ```
 
-Full example can be found [here]()
+Full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/example/SimpleGerpExample.java)
 
 Use GERP with UIMA
 ------------------
@@ -36,5 +40,5 @@ Object[] configurationData = {
     JCasIterable iter = SimplePipeline.iteratePipeline(CR_DESC, aed);
 ```
 
-Full example can be found [here]()
+Full example can be found [here](src/main/java/edu/cmu/lti/oaqa/gerp/uima/example/ExampleSequentialGerpExecutor.java)
 

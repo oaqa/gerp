@@ -25,7 +25,7 @@ public class ExampleEvidencerOne extends JCasAnnotator_ImplBase {
       String sentence = annotation.getCoveredText();
       long count = sentence.chars().filter(ch -> isWhitespace(ch)).count();
       double confidence = 1.0 - Math.abs(count / (double) sentence.length() - 0.16);
-      return GerpFactory.newEvidence(jcas, annotation, this.getClass().getName(), confidence);
+      return GerpFactory.createEvidence(jcas, annotation, this.getClass().getName(), confidence);
     }).forEach(Evidence::addToIndexes);
   }
 

@@ -21,14 +21,14 @@ public class ExampleGenerator extends JCasAnnotator_ImplBase {
     while ((end = text.indexOf("\n", begin)) > 0) {
       Annotation sentence = new Annotation(jcas, begin, end);
       sentence.addToIndexes();
-      GeneratorInfo ginfo = GerpFactory.newGeneratorInfo(jcas, sentence,
+      GeneratorInfo ginfo = GerpFactory.createGeneratorInfo(jcas, sentence,
               Arrays.asList(this.getClass().getName()), new ArrayList<>());
       ginfo.addToIndexes();
       begin = end + 1;
     }
     Annotation sentence = new Annotation(jcas, begin, text.length());
     sentence.addToIndexes();
-    GeneratorInfo ginfo = GerpFactory.newGeneratorInfo(jcas, sentence,
+    GeneratorInfo ginfo = GerpFactory.createGeneratorInfo(jcas, sentence,
             Arrays.asList(this.getClass().getName()), new ArrayList<>());
     ginfo.addToIndexes();
   }

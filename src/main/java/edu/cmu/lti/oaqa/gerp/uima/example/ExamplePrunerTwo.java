@@ -29,7 +29,7 @@ public class ExamplePrunerTwo extends JCasAnnotator_ImplBase {
             .sorted(comparing(Pair::getValue)).findFirst().get();
     t2ranks.entrySet()
             .stream()
-            .map(e -> GerpFactory.newPruningDecision(jcas, e.getKey(), this.getClass().getName(), e
+            .map(e -> GerpFactory.createPruningDecision(jcas, e.getKey(), this.getClass().getName(), e
                     .getKey().equals(avg.getKey()))).forEach(PruningDecision::addToIndexes);
   }
 

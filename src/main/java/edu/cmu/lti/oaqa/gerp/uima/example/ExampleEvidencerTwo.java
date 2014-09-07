@@ -31,7 +31,7 @@ public class ExampleEvidencerTwo extends JCasAnnotator_ImplBase {
                       .filter(idx -> getType(sentence.charAt(idx)) == getType(sentence
                               .charAt(idx + 1))).count();
               double confidence = count / (double) sentence.length();
-              return GerpFactory.newEvidence(jcas, annotation, this.getClass().getName(),
+              return GerpFactory.createEvidence(jcas, annotation, this.getClass().getName(),
                       confidence);
             }).forEach(Evidence::addToIndexes);
   }

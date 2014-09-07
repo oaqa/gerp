@@ -34,7 +34,7 @@ public class ExampleRankerTwo extends JCasAnnotator_ImplBase {
             .boxed()
             .map(i -> {
               Pair<Annotation, Double> pair = pairs.get(pairs.size() - i);
-              return GerpFactory.newRank(jcas, pair.getKey(), this.getClass().getName(), i,
+              return GerpFactory.createRank(jcas, pair.getKey(), this.getClass().getName(), i,
                       pair.getValue());
             }).forEach(Rank::addToIndexes);
   }

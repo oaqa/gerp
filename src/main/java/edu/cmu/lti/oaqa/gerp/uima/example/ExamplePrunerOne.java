@@ -24,7 +24,7 @@ public class ExamplePrunerOne extends JCasAnnotator_ImplBase {
               double avg = entry.getValue().parallelStream().mapToDouble(r -> r.getRank())
                       .average().getAsDouble();
               boolean decision = avg < 2;
-              return GerpFactory.newPruningDecision(jcas, entry.getKey(),
+              return GerpFactory.createPruningDecision(jcas, entry.getKey(),
                       this.getClass().getName(), decision);
             }).forEach(PruningDecision::addToIndexes);
   }

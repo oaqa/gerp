@@ -1,6 +1,7 @@
 package edu.cmu.lti.oaqa.gerp.uima.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.uima.fit.util.FSCollectionFactory;
@@ -14,7 +15,7 @@ import edu.cmu.lti.oaqa.gerp.uima.type.Rank;
 
 public class GerpFactory {
 
-  public static <T extends TOP> GeneratorInfo newGeneratorInfo(JCas jcas, T raw,
+  public static <T extends TOP> GeneratorInfo createGeneratorInfo(JCas jcas, T raw,
           List<String> generators, List<TOP> dependencies) {
     GeneratorInfo ret = new GeneratorInfo(jcas);
     ret.setRaw(raw);
@@ -23,7 +24,12 @@ public class GerpFactory {
     return ret;
   }
 
-  public static <T extends TOP> Evidence newEvidence(JCas jcas, T raw, String evidencer,
+  public static <T extends TOP> GeneratorInfo createGeneratorInfo(JCas jcas, T raw,
+          String generator, List<TOP> dependencies) {
+    return createGeneratorInfo(jcas, raw, Arrays.asList(generator), dependencies);
+  }
+
+  public static <T extends TOP> Evidence createEvidence(JCas jcas, T raw, String evidencer,
           double confidence, List<TOP> details) {
     Evidence ret = new Evidence(jcas);
     ret.setRaw(raw);
@@ -33,7 +39,7 @@ public class GerpFactory {
     return ret;
   }
 
-  public static <T extends TOP> Evidence newEvidence(JCas jcas, T raw, String evidencer,
+  public static <T extends TOP> Evidence createEvidence(JCas jcas, T raw, String evidencer,
           double confidence) {
     Evidence ret = new Evidence(jcas);
     ret.setRaw(raw);
@@ -43,7 +49,8 @@ public class GerpFactory {
     return ret;
   }
 
-  public static <T extends TOP> Rank newRank(JCas jcas, T raw, String ranker, int rank, double score) {
+  public static <T extends TOP> Rank createRank(JCas jcas, T raw, String ranker, int rank,
+          double score) {
     Rank ret = new Rank(jcas);
     ret.setRaw(raw);
     ret.setRanker(ranker);
@@ -52,8 +59,8 @@ public class GerpFactory {
     return ret;
   }
 
-  public static <T extends TOP> PruningDecision newPruningDecision(JCas jcas, T raw, String pruner,
-          boolean decision) {
+  public static <T extends TOP> PruningDecision createPruningDecision(JCas jcas, T raw,
+          String pruner, boolean decision) {
     PruningDecision ret = new PruningDecision(jcas);
     ret.setRaw(raw);
     ret.setPruner(pruner);

@@ -13,7 +13,7 @@ import org.apache.uima.jcas.cas.TOP;
 
 
 /** A type that stores the information of the generator that creates the type.
- * Updated by JCasGen Fri Aug 01 22:08:42 EDT 2014
+ * Updated by JCasGen Mon Sep 08 15:43:53 EDT 2014
  * XML source: /home/yangzi/QA/gerp/src/main/resources/edu/cmu/lti/oaqa/gerp/uima/GerpTypes.xml
  * @generated */
 public class GeneratorInfo extends GerpBase {
@@ -67,25 +67,25 @@ public class GeneratorInfo extends GerpBase {
  
     
   //*--------------*
-  //* Feature: generators
+  //* Feature: generator
 
-  /** getter for generators - gets An array of genenator names that nominee this feature structure to be the candidate of a certain targeted entity.
+  /** getter for generator - gets Genenator name that nominees this feature structure to be the candidate of a certain targeted entity.
    * @generated
    * @return value of the feature 
    */
-  public StringList getGenerators() {
-    if (GeneratorInfo_Type.featOkTst && ((GeneratorInfo_Type)jcasType).casFeat_generators == null)
-      jcasType.jcas.throwFeatMissing("generators", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
-    return (StringList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((GeneratorInfo_Type)jcasType).casFeatCode_generators)));}
+  public String getGenerator() {
+    if (GeneratorInfo_Type.featOkTst && ((GeneratorInfo_Type)jcasType).casFeat_generator == null)
+      jcasType.jcas.throwFeatMissing("generator", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((GeneratorInfo_Type)jcasType).casFeatCode_generator);}
     
-  /** setter for generators - sets An array of genenator names that nominee this feature structure to be the candidate of a certain targeted entity. 
+  /** setter for generator - sets Genenator name that nominees this feature structure to be the candidate of a certain targeted entity. 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setGenerators(StringList v) {
-    if (GeneratorInfo_Type.featOkTst && ((GeneratorInfo_Type)jcasType).casFeat_generators == null)
-      jcasType.jcas.throwFeatMissing("generators", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
-    jcasType.ll_cas.ll_setRefValue(addr, ((GeneratorInfo_Type)jcasType).casFeatCode_generators, jcasType.ll_cas.ll_getFSRef(v));}    
+  public void setGenerator(String v) {
+    if (GeneratorInfo_Type.featOkTst && ((GeneratorInfo_Type)jcasType).casFeat_generator == null)
+      jcasType.jcas.throwFeatMissing("generator", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
+    jcasType.ll_cas.ll_setStringValue(addr, ((GeneratorInfo_Type)jcasType).casFeatCode_generator, v);}    
    
     
   //*--------------*

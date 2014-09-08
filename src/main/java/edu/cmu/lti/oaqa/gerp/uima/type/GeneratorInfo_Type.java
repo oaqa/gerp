@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.TOP_Type;
 
 /** A type that stores the information of the generator that creates the type.
- * Updated by JCasGen Fri Aug 01 22:08:42 EDT 2014
+ * Updated by JCasGen Mon Sep 08 15:43:53 EDT 2014
  * @generated */
 public class GeneratorInfo_Type extends GerpBase_Type {
   /** @generated 
@@ -47,26 +47,26 @@ public class GeneratorInfo_Type extends GerpBase_Type {
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
  
   /** @generated */
-  final Feature casFeat_generators;
+  final Feature casFeat_generator;
   /** @generated */
-  final int     casFeatCode_generators;
+  final int     casFeatCode_generator;
   /** @generated
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
-  public int getGenerators(int addr) {
-        if (featOkTst && casFeat_generators == null)
-      jcas.throwFeatMissing("generators", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
-    return ll_cas.ll_getRefValue(addr, casFeatCode_generators);
+  public String getGenerator(int addr) {
+        if (featOkTst && casFeat_generator == null)
+      jcas.throwFeatMissing("generator", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_generator);
   }
   /** @generated
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
-  public void setGenerators(int addr, int v) {
-        if (featOkTst && casFeat_generators == null)
-      jcas.throwFeatMissing("generators", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
-    ll_cas.ll_setRefValue(addr, casFeatCode_generators, v);}
+  public void setGenerator(int addr, String v) {
+        if (featOkTst && casFeat_generator == null)
+      jcas.throwFeatMissing("generator", "edu.cmu.lti.oaqa.gerp.uima.type.GeneratorInfo");
+    ll_cas.ll_setStringValue(addr, casFeatCode_generator, v);}
     
   
  
@@ -106,8 +106,8 @@ public class GeneratorInfo_Type extends GerpBase_Type {
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_generators = jcas.getRequiredFeatureDE(casType, "generators", "uima.cas.StringList", featOkTst);
-    casFeatCode_generators  = (null == casFeat_generators) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_generators).getCode();
+    casFeat_generator = jcas.getRequiredFeatureDE(casType, "generator", "uima.cas.String", featOkTst);
+    casFeatCode_generator  = (null == casFeat_generator) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_generator).getCode();
 
  
     casFeat_dependencies = jcas.getRequiredFeatureDE(casType, "dependencies", "uima.cas.FSList", featOkTst);

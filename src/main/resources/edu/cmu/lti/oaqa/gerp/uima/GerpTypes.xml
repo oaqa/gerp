@@ -23,9 +23,9 @@
       <supertypeName>edu.cmu.lti.oaqa.gerp.uima.type.GerpBase</supertypeName>
       <features>
         <featureDescription>
-          <name>generators</name>
-          <description>An array of genenator names that nominee this feature structure to be the candidate of a certain targeted entity.</description>
-          <rangeTypeName>uima.cas.StringList</rangeTypeName>
+          <name>generator</name>
+          <description>Genenator name that nominees this feature structure to be the candidate of a certain targeted entity.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
         <featureDescription>
           <name>dependencies</name>

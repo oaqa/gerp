@@ -1,7 +1,6 @@
 package edu.cmu.lti.oaqa.gerp.uima.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
@@ -21,15 +20,15 @@ public class ExampleGenerator extends JCasAnnotator_ImplBase {
     while ((end = text.indexOf("\n", begin)) > 0) {
       Annotation sentence = new Annotation(jcas, begin, end);
       sentence.addToIndexes();
-      GeneratorInfo ginfo = GerpFactory.createGeneratorInfo(jcas, sentence,
-              Arrays.asList(this.getClass().getName()), new ArrayList<>());
+      GeneratorInfo ginfo = GerpFactory.createGeneratorInfo(jcas, sentence, this.getClass()
+              .getName(), new ArrayList<>());
       ginfo.addToIndexes();
       begin = end + 1;
     }
     Annotation sentence = new Annotation(jcas, begin, text.length());
     sentence.addToIndexes();
     GeneratorInfo ginfo = GerpFactory.createGeneratorInfo(jcas, sentence,
-            Arrays.asList(this.getClass().getName()), new ArrayList<>());
+            this.getClass().getName(), new ArrayList<>());
     ginfo.addToIndexes();
   }
 

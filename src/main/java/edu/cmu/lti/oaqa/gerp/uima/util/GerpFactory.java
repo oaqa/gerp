@@ -1,7 +1,6 @@
 package edu.cmu.lti.oaqa.gerp.uima.util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.uima.fit.util.FSCollectionFactory;
@@ -16,17 +15,12 @@ import edu.cmu.lti.oaqa.gerp.uima.type.Rank;
 public class GerpFactory {
 
   public static <T extends TOP> GeneratorInfo createGeneratorInfo(JCas jcas, T raw,
-          List<String> generators, List<TOP> dependencies) {
+          String generator, List<TOP> dependencies) {
     GeneratorInfo ret = new GeneratorInfo(jcas);
     ret.setRaw(raw);
-    ret.setGenerators(FSCollectionFactory.createStringList(jcas, generators));
+    ret.setGenerator(generator);
     ret.setDependencies(FSCollectionFactory.createFSList(jcas, dependencies));
     return ret;
-  }
-
-  public static <T extends TOP> GeneratorInfo createGeneratorInfo(JCas jcas, T raw,
-          String generator, List<TOP> dependencies) {
-    return createGeneratorInfo(jcas, raw, Arrays.asList(generator), dependencies);
   }
 
   public static <T extends TOP> Evidence createEvidence(JCas jcas, T raw, String evidencer,

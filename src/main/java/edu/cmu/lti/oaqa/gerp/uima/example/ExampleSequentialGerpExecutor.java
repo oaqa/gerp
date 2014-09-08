@@ -10,7 +10,6 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.JCasIterable;
 import org.apache.uima.fit.pipeline.SimplePipeline;
-import org.apache.uima.fit.util.FSCollectionFactory;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 
@@ -21,7 +20,6 @@ import edu.cmu.lti.oaqa.gerp.uima.util.GerpUtil;
 public class ExampleSequentialGerpExecutor {
 
   public static void main(String[] args) throws ResourceInitializationException {
-
     // configure components as parameter
     Object[] configurationData = {
         "type",
@@ -51,8 +49,7 @@ public class ExampleSequentialGerpExecutor {
       System.out.println("Candidate");
       System.out.println("Generators: ");
       ginfos.forEach(g -> System.out.println(format("  - %s: %s",
-              ((Annotation) g.getRaw()).getCoveredText(),
-              FSCollectionFactory.create(g.getGenerators()))));
+              ((Annotation) g.getRaw()).getCoveredText(), g.getGenerator())));
       System.out.println("Evidences: ");
       GerpUtil.streamEvidences(jcas, Annotation.class).forEach(
               e -> System.out.println(format("  - %s: %s <- %s",

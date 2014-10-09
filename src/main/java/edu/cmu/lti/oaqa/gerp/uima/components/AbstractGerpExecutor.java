@@ -112,9 +112,10 @@ public abstract class AbstractGerpExecutor<T extends TOP> extends JCasMultiplier
   public void process(JCas jcas) throws AnalysisEngineProcessException {
     gerp(jcas);
     // group types in jcas by raw types
+    @SuppressWarnings("unchecked")
     Map<TOP, List<GerpBase>> raw2fs = Stream
             .of(GeneratorInfo.class, Evidence.class, Rank.class, PruningDecision.class)
-            .flatMap(clazz -> GerpUtil.stream(jcas, clazz, type))
+            .flatMap(clazz -> (Stream<GerpBase>) GerpUtil.stream(jcas, clazz, type))
             .collect(Collectors.groupingBy(GerpBase::getRaw));
     iter = raw2fs.entrySet().iterator();
   }
